@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1475411217">
+  <project timestamp="1475411217">
+    <package name="Ecfectus\Events">
+      <file name="/Users/leemason/ecfectus/events/src/Dispatcher.php">
+        <class name="Dispatcher" namespace="Ecfectus\Events">
+          <metrics complexity="20" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="31" elements="41" coveredelements="38"/>
+        </class>
+        <line num="30" type="stmt" count="7"/>
+        <line num="35" type="method" name="listen" visibility="public" complexity="2" crap="2" count="6"/>
+        <line num="37" type="stmt" count="6"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="6"/>
+        <line num="42" type="stmt" count="6"/>
+        <line num="45" type="stmt" count="6"/>
+        <line num="54" type="method" name="getQueue" visibility="private" complexity="1" crap="1" count="6"/>
+        <line num="56" type="stmt" count="6"/>
+        <line num="65" type="method" name="getWildcardQueue" visibility="private" complexity="1" crap="1" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <line num="73" type="method" name="fire" visibility="public" complexity="7" crap="7" count="6"/>
+        <line num="75" type="stmt" count="6"/>
+        <line num="77" type="stmt" count="6"/>
+        <line num="80" type="stmt" count="6"/>
+        <line num="81" type="stmt" count="1"/>
+        <line num="82" type="stmt" count="1"/>
+        <line num="83" type="stmt" count="1"/>
+        <line num="84" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="6"/>
+        <line num="90" type="stmt" count="5"/>
+        <line num="91" type="stmt" count="1"/>
+        <line num="93" type="stmt" count="5"/>
+        <line num="94" type="stmt" count="5"/>
+        <line num="98" type="stmt" count="6"/>
+        <line num="108" type="method" name="matchesWildcard" visibility="private" complexity="1" crap="1" count="1"/>
+        <line num="110" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <line num="115" type="stmt" count="1"/>
+        <line num="124" type="method" name="resolve" visibility="private" complexity="1" crap="1" count="1"/>
+        <line num="125" type="stmt" count="1"/>
+        <line num="131" type="method" name="forget" visibility="public" complexity="4" crap="4.59" count="1"/>
+        <line num="133" type="stmt" count="1"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="138" type="stmt" count="1"/>
+        <line num="139" type="stmt" count="1"/>
+        <line num="143" type="stmt" count="1"/>
+        <line num="149" type="method" name="setResolver" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="151" type="stmt" count="1"/>
+        <line num="152" type="stmt" count="1"/>
+        <metrics loc="154" ncloc="97" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="32" elements="42" coveredelements="39"/>
+      </file>
+      <file name="/Users/leemason/ecfectus/events/src/Event.php">
+        <class name="Event" namespace="Ecfectus\Events">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="14" ncloc="8" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <file name="/Users/leemason/ecfectus/events/src/DispatcherInterface.php">
+      <metrics loc="52" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <metrics files="3" loc="220" ncloc="121" classes="2" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="32" elements="42" coveredelements="39"/>
+  </project>
+</coverage>
