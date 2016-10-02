@@ -66,3 +66,12 @@ $dispatcher->setResolver(function($callback = null){
 
 $dispatcher->listen('*', 'MyClassName@handleEvent', -10);//MyClassName is created via the resolver and the result of the handleEvent method is returned.
 ```
+
+## Forgetting Events
+
+You can remove all listeners for an event by calling the `forgot` dispatcher method.
+
+```php
+$dispatcher->forget(TestEvent::class); all listeners for TestEvent will be forgotten
+$dispatcher->forget('*'); all listeners for the wildcard * will be forgotten
+```
