@@ -1,5 +1,5 @@
 # Events
-PHP7 Event dispatcher
+PHP7 Event dispatcher, utilizing new type hints, and the `Ds\PriorityQueue` data type for improved performance and reduced complexity.
 
 ## Usage
 
@@ -89,8 +89,8 @@ In future we may add propagation features, or other yet to be decided features, 
 Well we pondered over this for a while, and we came to conclusion using the event name as the string representation of the class to be the best solution for multiple reasons.
 
 1. Boilerplate code checking types and values for event names is reduced to a simple `class_name` call.
-2. We know for sure what is being passed in and around the dispatcher.
-3. IDE and auto complete makes ir much easier for developers than remembering string values.
+2. We know for sure what is being passed in and around the dispatcher, so we can type hint accordingly.
+3. IDE and auto complete makes it much easier for developers than remembering string values.
 4. In some cases addingin "flexibility" just adds confusion to documentation, confusion for users especially when working on projects where 1 developer prefers one style over another.
 
 This way its very simple, you pass in an instance of your event, thats it.
