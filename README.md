@@ -1,4 +1,6 @@
 # Events
+[![Build Status](https://travis-ci.org/ecfectus/events.svg?branch=master)](https://travis-ci.org/ecfectus/events)
+
 PHP7 Event dispatcher, utilizing new type hints, and the `Ds\PriorityQueue` data type for improved performance and reduced complexity.
 
 ## Usage
