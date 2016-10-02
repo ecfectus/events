@@ -2,6 +2,7 @@
 namespace Ecfectus\Events;
 
 use Ds\PriorityQueue;
+use Ecfectus\Events\Test\Subscriber;
 
 class Dispatcher implements DispatcherInterface{
 
@@ -142,6 +143,29 @@ class Dispatcher implements DispatcherInterface{
 
         return $this;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function subscribe($subscriber = null) : DispatcherInterface
+    {
+        if(is_string($subscriber) && class_exists($subscriber)){
+            $subscriber = new $subscriber();
+        }
+
+        if(!is_object($subscriber)){
+            throw new \InvalidArgumentException('You must provide either a class instance, or a class name to use as a subscriber.');
+        }
+
+        if(!method_exists($subscriber, 'subscribe')){
+            throw new \InvalidArgumentException('A subscriber must have a subscribe method.');
+        }
+
+        $subscriber->subscribe($this);
+
+        return $this;
+    }
+
 
     /**
      * @inheritDoc

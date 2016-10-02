@@ -43,6 +43,14 @@ interface DispatcherInterface
     public function forget(string $event = '') : DispatcherInterface;
 
     /**
+     * Allows you to add a subscriber class that must have a subscribe method.
+     *
+     * @param null $subscriber
+     * @return DispatcherInterface
+     */
+    public function subscribe($subscriber = null) : DispatcherInterface;
+
+    /**
      * Set the resolver for none callable callbacks.
      *
      * @param callable $resolver

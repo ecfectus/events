@@ -3,11 +3,23 @@
 namespace Ecfectus\Events\Test;
 
 use Ecfectus\Events\Dispatcher;
+use Ecfectus\Events\DispatcherInterface;
 use Ecfectus\Events\Event;
 use PHPUnit\Framework\TestCase;
 
 class TestEvent extends Event{
     public $value = [];
+}
+
+class Subscriber{
+    public function subscribe(DispatcherInterface $dispatcher){
+        $dispatcher->listen(TestEvent::class, function(Event $e){
+            $e->value[] = 1;
+        });
+        $dispatcher->listen(TestEvent::class, function(Event $e){
+            $e->value[] = 2;
+        });
+    }
 }
 
 class DispatcherTest extends TestCase
@@ -144,5 +156,49 @@ class DispatcherTest extends TestCase
         $result = $dispatcher->fire($event);
 
         $this->assertEquals([], $result->value);
+    }
+
+    public function testAddingSubscriber(){
+        $dispatcher = new Dispatcher();
+
+        $subscriber = new Subscriber();
+
+        $dispatcher->subscribe($subscriber);
+
+        $event = new TestEvent();
+
+        $result = $dispatcher->fire($event);
+
+        $this->assertEquals([1,2], $result->value);
+    }
+
+    public function testAddingSubscriberAsString(){
+        $dispatcher = new Dispatcher();
+
+        $dispatcher->subscribe(Subscriber::class);
+
+        $event = new TestEvent();
+
+        $result = $dispatcher->fire($event);
+
+        $this->assertEquals([1,2], $result->value);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testAddingSubscriberWithoutSubscribeMethod(){
+        $dispatcher = new Dispatcher();
+
+        $dispatcher->subscribe(new class{});
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testAddingSubscriberWhichIsntAClass(){
+        $dispatcher = new Dispatcher();
+
+        $dispatcher->subscribe('afunction');
     }
 }

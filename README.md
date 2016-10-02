@@ -94,3 +94,33 @@ Well we pondered over this for a while, and we came to conclusion using the even
 4. In some cases addingin "flexibility" just adds confusion to documentation, confusion for users especially when working on projects where 1 developer prefers one style over another.
 
 This way its very simple, you pass in an instance of your event, thats it.
+
+## Subscribers
+
+You can also create subscriber classes and add them to the dispatcher, these classes must provide a `subscribe` method and get passed an instance of the dispatcher.
+
+Within the subscribers subscribe method you may use the dispatcher as normal, this is perfect for grouping event listeners.
+
+```
+class NameOfSubscriberClass{
+
+    public function subscribe($dispatcher)
+    {
+        $dispatcher->listen('*', function(Event $e){
+            $e->value[] = 1;
+        });
+
+        $dispatcher->listen('*', function(Event $e){
+            $e->value[] = 2;
+        });
+
+        //more events
+    }
+}
+
+$dispatcher->subscribe('NameOfSubscriberClass');// NameOfSubscriberClass will be created for you via (new NameOfSubscriberClass())
+
+//or pass an instance (ideal if your subscriber needs constructor arguments)
+$subscriber = new NameOfSubscriberClass();
+$dispatcher->subscribe($subscriber);
+```
