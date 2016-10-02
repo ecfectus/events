@@ -131,7 +131,13 @@ class DispatcherTest extends TestCase
             $e->value[] = 1;
         }, 10);
 
+        $dispatcher->listen('*', function(Event $e){
+            $e->value[] = 2;
+        }, 10);
+
         $dispatcher->forget(TestEvent::class);
+
+        $dispatcher->forget('*');
 
         $event = new TestEvent();
 

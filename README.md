@@ -6,7 +6,6 @@ PHP7 Event dispatcher, utilizing new type hints, and the `Ds\PriorityQueue` data
 Usage is simple, use `listen` to add a callback, and `fire` to run the event callbacks.
 
 ```php
-
 class TestEvent extends Ecfectus\Events\Event{
     public $value = [];
 }
@@ -28,7 +27,6 @@ $result = $dispatcher->fire(new TestEvent()); $result->value will equal [2, 1]
 You can also add wildcard events, and priority for the events will be maintained.
 
 ```php
-
 $dispatcher->listen('TestEv*', function(Event $e){
     $e->value[] = 3;
 }, 100);
