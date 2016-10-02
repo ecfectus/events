@@ -101,7 +101,7 @@ You can also create subscriber classes and add them to the dispatcher, these cla
 
 Within the subscribers subscribe method you may use the dispatcher as normal, this is perfect for grouping event listeners.
 
-```
+```php
 class NameOfSubscriberClass{
 
     public function subscribe($dispatcher)
