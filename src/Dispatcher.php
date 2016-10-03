@@ -2,7 +2,6 @@
 namespace Ecfectus\Events;
 
 use Ds\PriorityQueue;
-use Ecfectus\Events\Test\Subscriber;
 
 class Dispatcher implements DispatcherInterface{
 
